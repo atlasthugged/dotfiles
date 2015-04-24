@@ -1,0 +1,31 @@
+set ignorecase smartcase
+set scrolloff=3
+set relativenumber
+
+" Toggle search highlight
+nnoremap <CR> :nohlsearch<CR>
+
+" Set split widths for auto resizing
+set winwidth=84
+set winminwidth=40
+set winheight=10
+set winminheight=10
+set winheight=999
+
+" Toggles relative number
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+" Color scheme
+" Fix color for solarized
+set t_Co=256
+" Highlight the status line
+highlight StatusLine ctermfg=blue ctermbg=yellow
+colorscheme ron

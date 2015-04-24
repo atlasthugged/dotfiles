@@ -1,0 +1,9 @@
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+Bundle 'garbas/vim-snipmate'
+Bundle 'Lokaltog/vim-easymotion'
+
+" nelstrom's plugin depends on kana's
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
