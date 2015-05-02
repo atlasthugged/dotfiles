@@ -4,6 +4,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'tomasr/molokai'
+Plug 'bling/vim-airline'
 
 " nelstrom's plugin depends on kana's
 Plug 'kana/vim-textobj-user'
