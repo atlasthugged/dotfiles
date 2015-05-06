@@ -6,6 +6,12 @@ Plug 'garbas/vim-snipmate'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
+" check out powerline maybe?
+
+Plug 'jlanzarotta/bufexplorer'
+Plug 'mattn/emmet-vim/'
+Plug 'ervandew/supertab'
+Plug 'chriskempson/base16-vim'
 
 " nelstrom's plugin depends on kana's
 Plug 'kana/vim-textobj-user'
