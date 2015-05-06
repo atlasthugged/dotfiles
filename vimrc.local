@@ -1,13 +1,15 @@
+set hidden
 set ignorecase smartcase
 set scrolloff=3
 set relativenumber
 
 " Toggle search highlight
-nnoremap <CR> :nohlsearch<CR>
+set hlsearch
+nnoremap <CR> :set hlsearch!<CR>
 
 " Set split widths for auto resizing
 set winwidth=84
-set winminwidth=40
+" set winminwidth=40
 set winheight=10
 set winminheight=10
 set winheight=999
