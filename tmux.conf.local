@@ -64,8 +64,6 @@ set -g history-limit 10000
 # fix vim paste
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 
-set-option -g mouse on
-
 set-option -g default-terminal "screen-256color"
 # set-option -gw utf8 on
 set-option -gw xterm-keys on
@@ -73,3 +71,16 @@ set-option -gw xterm-keys on
 unbind-key C-b
 unbind-key C-s
 bind-key C-a send-prefix
+
+# copied from github.com/carmensea/dotfiles
+set -g terminal-overrides 'xterm-*:smcup@:rmcup@'
+
+#Enable Mouse
+setw -g mouse on
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
+#set -g mode-mouse on
+#set -g mouse-select-pane on
+#set -g mouse-resize-pane on
+#set -g mouse-select-window on
+#set -g mouse-utf8 on
