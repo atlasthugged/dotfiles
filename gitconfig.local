@@ -1,3 +1,9 @@
 [user]
   name = Josh Leichtung
-  email = elultimo@gmail.com
+  email = joshleichtung@gmail.com
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+[core]
+  editor = vim

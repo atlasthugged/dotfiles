@@ -1,8 +1,12 @@
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
+
+" dependencies for snipmate
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
+
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tomasr/molokai'
 Plug 'bling/vim-airline'
@@ -13,7 +17,19 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'mattn/emmet-vim/'
 Plug 'ervandew/supertab'
 Plug 'chriskempson/base16-vim'
+Plug 'godlygeek/tabular'
+Plug 'jpalardy/vim-slime'
 
 " nelstrom's plugin depends on kana's
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
+
+" Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/neocomplete.vim'
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'pangloss/vim-javascript'
+Plug 'sheerun/vim-polyglot'
+Plug 'othree/jspc.vim'
+Plug 'elmcast/elm-vim'
+

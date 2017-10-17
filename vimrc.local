@@ -8,7 +8,7 @@ set hlsearch
 nnoremap <CR> :set hlsearch!<CR>
 
 " Set split widths for auto resizing
-set winwidth=84
+set winwidth=74
 " set winminwidth=40
 set winheight=10
 set winminheight=10
@@ -29,5 +29,41 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " Fix color for solarized
 set t_Co=256
 " Highlight the status line
-highlight StatusLine ctermfg=blue ctermbg=yellow
-colorscheme ron
+" highlight StatusLine ctermfg=blue ctermbg=yellow
+colorscheme base16-spacemacs
+set background=dark
+
+:map <leader>r :!ruby %<cr>
+
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.2"}
+
+:map <leader>s :so ~/.vimrc<cr>
+inoremap <C-r><C-r> <C-o>:reg<cr>
+
+"Syntastic setup from github 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '👺'
+let g:syntastic_warning_symbol = '👹'
+let g:syntastic_style_warning_symbol = '💩'
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
+
+" Elm Syntastic
+let g:elm_syntastic_show_warnings = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 0
