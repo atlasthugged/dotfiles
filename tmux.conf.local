@@ -69,3 +69,7 @@ set-option -g mouse on
 set-option -g default-terminal "screen-256color"
 # set-option -gw utf8 on
 set-option -gw xterm-keys on
+
+unbind-key C-b
+unbind-key C-s
+bind-key C-a send-prefix
