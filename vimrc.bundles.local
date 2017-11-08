@@ -32,4 +32,4 @@ Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/jspc.vim'
 Plug 'elmcast/elm-vim'
-
+Plug 'junegunn/fzf.vim'
