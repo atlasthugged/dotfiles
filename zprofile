@@ -74,7 +74,7 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/78/xterm-256color ]; then
         export TERM='xterm-256color'
 else
         export TERM='xterm-color'
