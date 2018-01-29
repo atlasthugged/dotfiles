@@ -5,7 +5,8 @@ set relativenumber
 
 " Toggle search highlight
 set hlsearch
-nnoremap <CR> :set hlsearch!<CR>
+nnoremap <CR> :nohls <CR>
+" nnoremap <silent> <space> :nohl<Bar>:echo<CR>
 
 " Set split widths for auto resizing
 set winwidth=74
@@ -73,8 +74,142 @@ let g:ale_set_loclist = 1
 let g:ale_set_quickfix = 1
 
 " Fix highlighting parens
-hi MatchParen cterm=none ctermbg=green ctermfg=blue
+" hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 " Emmet tab completion
 imap <expr> <C-E> emmet#expandAbbrIntelligent("\<tab>")
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-n>"
+let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:UltiSnipsMappingsToIgnore = ['autocomplete']
+
+
+" Additional UltiSnips config.
+let g:UltiSnipsSnippetsDir = '~/.vim/ultisnips'
+let g:UltiSnipsSnippetDirectories = ['ultisnips']
+
+
+
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+
+
+" From chris toomey
+" let g:UltiSnipsSnippetsDir='~/.vim/snippets'
+let g:UltiSnipsEditSplit='vertical'
+" let g:UltiSnipsExpandTrigger           = '<C-]>'
+" let g:UltiSnipsJumpForwardTrigger      = '<C-]>'
+" let g::UltiSnipsJumpBackwardTrigger     = '<C-[>'
+
+nnoremap <leader>ue :UltiSnipsEdit<cr>
+
+:map <leader>rcl :sp ~/.vimrc.local<cr>
+:map <leader>rcd :sp ~/.vimrc<cr>
+:map <leader>rcbl :sp ~/.vimrc.bundles.local<cr>
+:map <leader>rcbd :sp ~/.vimrc.bundles<cr>
+
+" JSX
+let g:jsx_ext_required = 0
+
+" Sane cursor movement with line wrapping
+noremap j gj
+noremap k gk
+
+" Ale lint settings
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+
+" For airline integrstion
+let g:airline#extensions#ale#error_symbol = '✖:'
+let g:airline#extensions#ale#warning_symbol = '⚠:'
+
+
+" NeoComplete setup
+"Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 1
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'

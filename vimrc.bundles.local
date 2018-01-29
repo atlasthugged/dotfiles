@@ -3,9 +3,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
 
 " dependencies for snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
 
 Plug 'Lokaltog/vim-easymotion'
 Plug 'tomasr/molokai'
@@ -28,8 +31,15 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'Shougo/neocomplete.vim'
 
 Plug 'jiangmiao/auto-pairs'
+" Plug 'cohama/lexima.vim'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/jspc.vim'
 Plug 'elmcast/elm-vim'
 Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+" use Ctrl-n to activate
+"
+Plug 'thoughtbot/vim-rspec'
+Plug 'gorkunov/smartpairs.vim'
