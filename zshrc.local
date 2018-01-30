@@ -13,8 +13,8 @@ fi
 # Customize to your needs...
 #
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 if [ -d "$HOME/Downloads/android-sdk-macosx/platform-tools" ] ; then
     export PATH="$HOE/Downloads/android-sdk-macosx/platform-tools:$PATH"
@@ -35,3 +35,6 @@ export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 #
 # added by travis gem
 [ -f /Users/josh/.travis/travis.sh ] && source /Users/josh/.travis/travis.sh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
