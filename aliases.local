@@ -1,0 +1,9 @@
+# hinge
+alias dbfake="rake db:reset && rake fake_data:for_stratification"
+alias dbtest="rake db:reset RAILS_ENV=test"
+alias hrsk="env bundle exec sidekiq -q critical,10 -q high, 5 -q normal,2 -q low,1 -c 3 "
+alias dockpg="docker run --name hinge-postgres -e POSTGRES_PASSWORD=hinge_password -e POSTGRES_USER=hinge_dev -p 5432:5432 -d postgres:9.6"
+alias dockred="docker run --name hinge-redis -p 6379:6379 -d redis"
+alias dock-start='docker start hinge-postgres && docker start hinge-redis'
+alias ggi="git grep -i -P"
+alias gg='git grep -P'
