@@ -28,7 +28,17 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Plug 'Valloric/YouCompleteMe'
-Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
+" above replaced by deocomplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+let g:deoplete#enable_at_startup = 1
 
 Plug 'jiangmiao/auto-pairs'
 " Plug 'cohama/lexima.vim'
@@ -43,3 +53,6 @@ Plug 'terryma/vim-multiple-cursors'
 "
 Plug 'thoughtbot/vim-rspec'
 Plug 'gorkunov/smartpairs.vim'
+
+" Typescript
+Plug 'leafgarland/typescript-vim'
