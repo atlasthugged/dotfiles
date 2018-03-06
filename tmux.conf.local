@@ -92,3 +92,4 @@ bind -n WheelDownPane select-pane -t= \; send-keys -M
 #set -g mouse-resize-pane on
 #set -g mouse-select-window on
 #set -g mouse-utf8 on
+set -g escape-time 10
