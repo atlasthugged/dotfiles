@@ -213,3 +213,13 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" Tab cycling
+map <Leader><Left> :tabp<CR>
+map <Leader><Right> :tabn<CR>
+map <Leader><C-t> :tabnew<CR>
+map <Leader>nt :NERDTreeToggle<CR>
+
+" Remove escape key latency for exiting normal mode
+set timeoutlen=1000 ttimeoutlen=50
+
