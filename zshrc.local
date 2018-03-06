@@ -42,3 +42,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # MacPorts Installer addition on 2018-01-29_at_13:40:33: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
+
+# Yarn Path
+export PATH="$PATH:/opt/yarn-[version]/bin"
