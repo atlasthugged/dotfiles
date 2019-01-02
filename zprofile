@@ -69,13 +69,14 @@ if [[ ! -d "$TMPDIR" ]]; then
   mkdir -p -m 700 "$TMPDIR"
 fi
 
-TMPPREFIX="${TMPDIR%/}/zsh"
+# TMPPREFIX="${TMPDIR%/}/zsh"
 
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/78/xterm-256color ]; then
-        export TERM='xterm-256color'
-else
-        export TERM='xterm-color'
-fi
+# if [ -e /usr/share/terminfo/x/xterm-256color ] || [ -e /usr/share/terminfo/78/xterm-256color ]; then
+#         export TERM='xterm-256color'
+# else
+#         export TERM='xterm-color'
+# fi
+export TERM='screen-256color'

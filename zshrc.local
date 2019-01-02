@@ -1,17 +1,7 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# Customize to your needs...
-#
 
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
@@ -20,10 +10,12 @@ if [ -d "$HOME/Downloads/android-sdk-macosx/platform-tools" ] ; then
     export PATH="$HOE/Downloads/android-sdk-macosx/platform-tools:$PATH"
 fi
 
+unset PREFIX
 alias be="bundle exec"
 alias brake="bundle exec rake"
 
 export NVM_DIR="$HOME/.nvm"
+# export NVM_DIR="$(realpath $HOME/.nvm)"    # fix for prefix?
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -31,7 +23,7 @@ export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
+export PATH="$(brew)/bin:$PATH"
 #
 # added by travis gem
 [ -f /Users/josh/.travis/travis.sh ] && source /Users/josh/.travis/travis.sh
@@ -40,7 +32,7 @@ export PATH="$(brew --prefix qt@5.5)/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # MacPorts Installer addition on 2018-01-29_at_13:40:33: adding an appropriate PATH variable for use with MacPorts.
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Yarn Path
