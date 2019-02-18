@@ -6,7 +6,7 @@
 [merge]
   tool = vimdiff
 [core]
-  editor = vim
+  editor = nvim
 
 [alias]
   lg = log \
